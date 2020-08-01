@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:proj_marvel/View/home.dart';
+import 'package:proj_marvel/View/historico_page.dart';
+import 'package:proj_marvel/View/login_page.dart';
 import 'package:splashscreen/splashscreen.dart';
+
+import 'View/home_page.dart';
 
 
 void main() {
@@ -13,12 +16,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Marvel App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Splash Screen',),
+
+      routes: <String, WidgetBuilder> {
+      '/homePage'     : (BuildContext context) => new HomePage(),
+      '/historicoPage'     : (BuildContext context) => new HistoricoPage(),
+     
+    },
     );
   }
 }
@@ -56,7 +66,7 @@ Widget _introScreen(Size size) {
             Color(0xff2E7D32),
           ],
         ),
-        navigateAfterSeconds: HomePage(),
+        navigateAfterSeconds: LoginPage(),
         loaderColor: Colors.transparent,
       ),
       Container(
