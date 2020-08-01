@@ -14,27 +14,38 @@ class HomePageController = _HomePageController with _$HomePageController;
 abstract class _HomePageController with Store {
 
   final HistoricoList list = new HistoricoList();
-  final LocalStorage storage = new LocalStorage('marvel_app');
 
+  
+  final LocalStorage storage = new LocalStorage('marvel_app');
   
   
   
   Future<List<HistoricoItem>> recuperaHistoricos() async{    
-    List<HistoricoItem> list = new List<HistoricoItem>();
+    List<HistoricoItem> _list = new List<HistoricoItem>();
     var json = storage.getItem('historicos');
     for (var gets in json){
       HistoricoItem item = new HistoricoItem.fromJson(gets);
-      list.add(item);
+      _list.add(item);
     } 
-   return list;
+   return _list;
   }
 
 
   addItem(String valorInicial, double valorFinal, String moedaOrigem, String moedaDestino, String data) {
   
       final item = new HistoricoItem(valorInicial: double.parse(valorInicial.replaceAll(",", ".")), valorFinal: valorFinal, moedaOrigem: moedaOrigem, moedaDestino: moedaDestino, date: data);
+      
+      if(list.items.length == 0){
+        
+        var json = storage.getItem('historicos');
+    for (var gets in json){
+      HistoricoItem item = new HistoricoItem.fromJson(gets);
+      list.items.add(item); } 
+      }
       list.items.add(item);
-      storage.setItem('historicos', list.toJSONEncodable());
+      print(list.items.length);
+        storage.setItem('historicos', list.toJSONEncodable());
+
   }
   
   @observable
@@ -49,8 +60,9 @@ abstract class _HomePageController with Store {
       var val = decodeJson["rates"];
 
       result =  val[moedaDestino] * double.parse(valor.replaceAll(",", "."));
-
+      
       addItem(valor, result, moedaOrigem, moedaDestino, DateTime.now().toString());
+    
 
     }
   }

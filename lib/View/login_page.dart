@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../icons_social_icons.dart' as CustomIcon;
+
+
 
 class LoginPage extends StatelessWidget {
   @override
@@ -98,10 +101,20 @@ class LoginPage extends StatelessWidget {
                               print('Login Facebook');
                             },
                             textColor: Colors.white,
-                            child: Text(
-                              'Login com FACEBOOK',
-                              style: TextStyle(
-                                fontSize: 20,
+                            child: Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+
+                                    Icon(CustomIcon.IconsSocial.facebook_squared),
+
+                                  Text(
+                                    'Login com Facebook',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -116,12 +129,20 @@ class LoginPage extends StatelessWidget {
                               print('login com Twitter');
                             },
                             textColor: Colors.white,
-                            child: Text(
-                              'Login com TWITTER',
-                              style: TextStyle(
-                                fontSize: 20,
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+
+                                    Icon(CustomIcon.IconsSocial.twitter),
+
+                                  Text(
+                                    'Login com Twitter',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
                           ),
                         ),
                         Padding(padding: EdgeInsets.symmetric(vertical: 7)),
@@ -134,12 +155,20 @@ class LoginPage extends StatelessWidget {
                               print('login com Google');
                             },
                             textColor: Colors.white,
-                            child: Text(
-                              'Login com GOOGLE',
-                              style: TextStyle(
-                                fontSize: 20,
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+
+                                    Icon(CustomIcon.IconsSocial.google),
+
+                                  Text(
+                                    'Login com Google',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
                           ),
                         ),
                         SizedBox(

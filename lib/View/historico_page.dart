@@ -50,18 +50,18 @@ class HistoricoPage extends StatelessWidget {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                    Text(item[index].moedaOrigem),
+                                    Text("Moeda: " + item[index].moedaOrigem),
                                     Icon(Icons.compare_arrows),
-                                    Text(item[index].moedaDestino),
+                                    Text("Moeda: " + item[index].moedaDestino),
                                 ],),
                                  
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>
                                 [
-                                  Text(item[index].valorInicial.toStringAsFixed(2)),
+                                  Text("\$ " + item[index].valorInicial.toStringAsFixed(2)),
                                   
-                                  Text(item[index].valorFinal.toStringAsFixed(2)),
+                                  Text("\$ " + item[index].valorFinal.toStringAsFixed(2)),
                                 ],)
                               ],
                             ),

@@ -76,6 +76,10 @@ class _HomePageState extends State<HomePage> {
                               onChanged: null);
 
                         List<Moeda> moedas = data.data;
+
+                      moedas.sort((a,b) => a.nome.compareTo(b.nome));
+
+
                         return DropdownButton<String>(
                           value: _valueOrigem,
                           isExpanded: true,
@@ -129,6 +133,7 @@ class _HomePageState extends State<HomePage> {
                               onChanged: null);
 
                         List<Moeda> moedas = data.data;
+                        moedas.sort((a,b) => a.nome.compareTo(b.nome));
                         return DropdownButton<String>(
                           value: _valueDestino,
                           isExpanded: true,
